@@ -1,11 +1,4 @@
-const colors = [
-  '#FFFFFF',
-  '#2196F3',
-  '#4CAF50',
-  '#FF9800',
-  '#009688',
-  '#795548',
-];
+const colors = ['#FFFFFF', '#2196F3', '#4CAF50', '#FF9800', '#009688', '#795548'];
 
 const refs = {
   startBtn: document.querySelector('[data-action=start]'),
@@ -18,6 +11,8 @@ refs.stopBtn.addEventListener('click', onRandomColorStop);
 
 const min = 0;
 const max = colors.length;
+
+let intervalId = null;
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -36,7 +31,6 @@ function onRandomColorStart() {
   intervalId = setInterval(() => {
     randomIntegerFromInterval(min, max);
 
-    refs.body.style.backgroundColor =
-      colors[randomIntegerFromInterval(min, max)];
+    refs.body.style.backgroundColor = colors[randomIntegerFromInterval(min, max)];
   }, 1000);
 }
